@@ -26,12 +26,3 @@ nodemon
 
 
 
-
-Crear Tabla en base de datos
-```
-sequelize db:migrate
-```
-
-
-
-
