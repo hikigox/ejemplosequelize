@@ -1,4 +1,7 @@
 'use strict';
+
+//Querry de crear employee. En esta lo que se hace es todo el querry para crear employee
+
 module.exports = {
     up: (queryInterface, Sequelize) => {
         return queryInterface.createTable('Employees', {
@@ -25,6 +28,8 @@ module.exports = {
                 allowNull: false,
                 type: Sequelize.DATE
             },
+
+            // Esto lo instanciamos de manera manuel y hace referencia a la llave foranea que va tener employees
             companyId: {
                 type: Sequelize.INTEGER,
                 onDelete: 'CASCADE',
