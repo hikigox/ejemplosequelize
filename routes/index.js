@@ -1,5 +1,5 @@
 const companyController = require('../controllers').company;
-
+const employeeController = require('../controllers').employee;
 
 // se crea un metodo exportable el cual pide como parametro el app, que es el servidor y ejecuta los diferentes peticiones, segun como lo pida el usuario.
 
@@ -14,4 +14,14 @@ module.exports = (app) => {
     //  Empeazar Crear ruta de company para una nueva instancia, es decir cuandos e ejecuta esto se tiene como objetivo crear una nueva compania en la base de datos y que esta devuelva un json de ella misma.
     app.post('/api/company', companyController.create);
     // Final de la company ruta
+
+
+    // Crear Employee
+    app.post('/api/employee', employeeController.create);
+
+    //Mostrar Employee
+    app.get('/api/employee', employeeController.findAll);
+
+    //Buscar un Employee(Por parametro)
+    app.get('/api/employee/:id', employeeController.findById);
 }

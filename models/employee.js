@@ -6,18 +6,39 @@ module.exports = (sequelize, DataTypes) => {
         name: {
             type: DataTypes.STRING,
             allowNull: false,
-
+            options: {
+                operatorsAliases: false
+            }
 
         },
         designation: {
             type: DataTypes.STRING,
             allowNull: false,
-
+            options: {
+                operatorsAliases: false
+            }
 
         },
 
+
         // En este campo existe algo llamado Number, que en el ejemplo se usa pero cuando lo implementamos nos saca un error y tiene que ver cuando el sequelize no encuentra un tipo de dato, en este caso se opto por el decimal que hace algo parecido 
-        salary: DataTypes.DECIMAL(10, 2)
+        salary: {
+            type: DataTypes.FLOAT,
+            allowNull: false,
+            validate: {
+                isDecimal: true
+
+            }
+
+
+
+        },
+        companyId: {
+            type: DataTypes.INTEGER,
+            allowNull: false,
+
+
+        },
     }, {});
     Employee.associate = function(models) {
         // associations can be defined here
