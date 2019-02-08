@@ -5,12 +5,16 @@ const logger = require('morgan');
 const bodyParse = require('body-parser');
 
 
+
+
 // esta es la entrada a la aplicacion , aqui configuramos el servidor
 const http = require('http');
 
 // Instancia de express
 
 const app = express();
+
+
 
 //Puerto del Servidor
 const puerto = require('./global/enviroment');
@@ -25,7 +29,8 @@ app.use(bodyParse.json());
 
 app.use(bodyParse.urlencoded({ extended: false }));
 
-
+//Token
+const jwt = require('./token/tokens');
 
 //Modelos
 const models = require('./models');
@@ -63,5 +68,18 @@ server.listen(puerto.SERVER_PORT, () => {
 
 
 });
+let payload = {
+    name: 'Fernando',
+    apellido: 'Herrera',
+    correo: 'fernandoherrera@gmail.com',
+    cedula: 465462356,
+    telefono: 3254367653,
 
+};
+let token = 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJuYW1lIjoiRmVybmFuZG8iLCJhcGVsbGlkbyI6IkhlcnJlcmEiLCJjb3JyZW8iOiJmZXJuYW5kb2hlcnJlcmFAZ21haWwuY29tIiwiY2VkdWxhIjo0NjU0NjIzNTYsInRlbGVmb25vIjozMjU0MzY3NjUzfQ.MHLfwy1FvneuHTWGz3P34Y_nlkbfoQBKa2ZqgQHQmtg';
+//Crear Token
+// jwt.crearToken(payload);
+
+//leer token
+jwt.getToken(token);
 module.exports = app;

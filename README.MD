@@ -26,3 +26,8 @@ nodemon
 
 
 
+<<<<<<< HEAD
+=======
+
+
+>>>>>>> Esta es una modificacion del ejemplo sequelize

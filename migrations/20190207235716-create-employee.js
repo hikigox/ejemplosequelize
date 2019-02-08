@@ -18,7 +18,7 @@ module.exports = {
                 type: Sequelize.STRING
             },
             salary: {
-                type: Sequelize.DECIMAL(10, 2)
+                type: Sequelize.FLOAT
             },
             createdAt: {
                 allowNull: false,
@@ -39,6 +39,7 @@ module.exports = {
                     as: 'companyId'
 
                 },
+                allowNull: false
 
 
 
